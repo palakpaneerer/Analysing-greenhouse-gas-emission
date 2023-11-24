@@ -5,13 +5,13 @@ import os
 # locate database files using relative paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 #db_path = os.path.join(BASE_DIR, "..", "database", "data.db")
-db_path = "/app/analysing-greenhouse-gas-emission/database/data.db"
+#db_path = "/app/analysing-greenhouse-gas-emission/database/data.db"
 
-print("current dir:", os.getcwd())
-print("db_path:", db_path)
+#print("current dir:", os.getcwd())
+#print("db_path:", db_path)
 
 # set connect the datbase
-conn = sqlite3.connect(db_path, check_same_thread=False)
+conn = sqlite3.connect("data.db", check_same_thread=False)
 c = conn.cursor()
 
 

@@ -6,6 +6,11 @@ import os
 # DB fanctions packages
 from db_fxns import *
 
+###########################################
+# core package
+import sqlite3
+###########################################
+
 
 
 
@@ -19,6 +24,14 @@ def main():
     st.title("Questionnaire for food and beverage professionals")
     st.subheader("We would like to express our sincere gratitude for your invaluable contribution and cooperation to the realization of this captivating and sustainable event.")
     st.subheader("The data collected here will be used for greenhouse gas emission calculations.")
+    
+    ################################################################################
+    conn = sqlite3.connect("data.db", check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT * FROM food') #BEFORE
+    #print(c.fetchone())
+    st.write(c.fetchall())
+    ################################################################################
 
     # Question about providing food
     provide_food = st.radio("Q. Do you provide food?", ('Yes', 'No'))
@@ -103,13 +116,15 @@ def main():
         for idx, row in beverage_data.iterrows():
             add_beverage_data(row['Type of Beverage'], row['Volume (litres)'], row['Measurement Method'], company)
 
-        
-        
-        
-        
+
         # Thank you message after submission
-        st.write(os.getcwd())
         st.success("Your response has been submitted. Thank you for your cooperation.")
+
+#######################################################
+        c.execute('SELECT * FROM food') #AFTER
+        st.write(c.fetchall())
+#######################################################
+        
 
 if __name__ == '__main__':
     main() 
