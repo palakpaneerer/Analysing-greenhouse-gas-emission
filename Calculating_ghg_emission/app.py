@@ -8,11 +8,7 @@
 # core package
 import streamlit as st
 import pandas as pd
-import os 
-import openpyxl
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 # DB fanctions packages
 from db_fxns import *
