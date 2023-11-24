@@ -4,10 +4,10 @@ import os
 
 # locate database files using relative paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#db_path = os.path.join(BASE_DIR, "..", "database", "data.db")
-#print("db_path:", db_path)
-#print("db_path:", )
-db_path = "../database/data.db"
+db_path = os.path.join(BASE_DIR, "..", "database", "data.db")
+
+print("current dir:", os.getcwd())
+print("db_path:", db_path)
 
 # set connect the datbase
 conn = sqlite3.connect(db_path, check_same_thread=False)
