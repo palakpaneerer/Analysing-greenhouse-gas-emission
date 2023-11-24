@@ -26,11 +26,12 @@ def main():
     st.subheader("The data collected here will be used for greenhouse gas emission calculations.")
     
     ################################################################################
-    conn = sqlite3.connect("data.db", check_same_thread=False)
-    c = conn.cursor()
-    c.execute('SELECT * FROM food') #BEFORE
+    #db_path = os.path.join("..", "database", "data.db")
+    #conn = sqlite3.connect(db_path, check_same_thread=False)
+    #c = conn.cursor()
+    #c.execute('SELECT * FROM food') #BEFORE
     #print(c.fetchone())
-    st.write(c.fetchall())
+    #st.write(c.fetchall())
     ################################################################################
 
     # Question about providing food
@@ -121,8 +122,8 @@ def main():
         st.success("Your response has been submitted. Thank you for your cooperation.")
 
 #######################################################
-        c.execute('SELECT * FROM food') #AFTER
-        st.write(c.fetchall())
+        #c.execute('SELECT * FROM food') #AFTER
+        #st.write(c.fetchall())
 #######################################################
         
 
