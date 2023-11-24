@@ -1,6 +1,7 @@
 # core package
 import streamlit as st
 import pandas as pd
+import os
 
 # DB fanctions packages
 from db_fxns import *
@@ -107,6 +108,7 @@ def main():
         
         
         # Thank you message after submission
+        st.write(os.getcwd())
         st.success("Your response has been submitted. Thank you for your cooperation.")
 
 if __name__ == '__main__':
